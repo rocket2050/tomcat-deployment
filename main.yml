@@ -1,13 +1,16 @@
 ---
 
 - hosts: tomcat
-  
+#  vars:
+#  - warRemotePath: /path to war file
+#  - destination: /
+
   tasks:
   - name: Stoping tomcat
     service: name=tomcat7 state=stopped
 
-  - name: remove war file
-    shell: rm -rf {{ destination }}/*
+#  - name: remove war file
+#    shell: rm -rf {{ destination }}/*
 
   - copy:
       src: "{{ warRemotePath }}"
